@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Countdown</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f3e5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #c3cfe2, #e6e8f1);
+    }
+    .countdown {
+      text-align: center;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      font-size: 28px;
+      color: #3e2723;
+      background-color: #f8bbd0;
+    }
+    .countdown h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #5e35b1;
+      font-family: 'Merriweather', serif;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .time {
+      font-size: 3rem;
+      font-weight: 500;
+      color: #8e24aa;
+      letter-spacing: 1px;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #5e35b1;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes shimmer {
+      0% { 
+        background-position: -1000px 0; 
+      }
+      100% { 
+        background-position: 1000px 0; 
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Georgia&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="countdown">
+    <h1>Countdown to Djinen's Birthday</h1>
+    <div id="timer" class="time"></div>
+    <div class="message">My special day is almost here! ready to spend some money on me !!?</div>
+  </div>
+
+  <script>
+    // Set the date of the birthday to 16:00 (4:00 PM)
+    const birthday = new Date("Feb 1, 2025 16:00:00").getTime();
+
+    // Update the countdown every second
+    const countdownInterval = setInterval(function() {
+      // Get the current time
+      const now = new Date().getTime();
+
+      // Calculate the difference between now and the birthday
+      const distance = birthday - now;
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the HTML element
+      document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      // If the countdown is over, display a message
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("timer").innerHTML = "Happy Birthday, to me am 20!!!!!";
+        document.querySelector(".message").style.display = "none";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
