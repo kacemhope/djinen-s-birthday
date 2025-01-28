@@ -9,6 +9,7 @@
       font-family: 'Georgia', serif;
       background-color: #f3e5f5;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -44,24 +45,15 @@
       font-size: 1.5rem;
       color: #5e35b1;
     }
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.03);
-      }
-      100% {
-        transform: scale(1);
-      }
+    h1 a {
+      text-decoration: none;
+      color: #5e35b1;
+      font-size: 1.5rem;
+      margin-top: 40px;
+      display: inline-block;
     }
-    @keyframes shimmer {
-      0% { 
-        background-position: -1000px 0; 
-      }
-      100% { 
-        background-position: 1000px 0; 
-      }
+    h1 a:hover {
+      text-decoration: underline;
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Georgia&display=swap" rel="stylesheet">
@@ -71,8 +63,10 @@
   <div class="countdown">
     <h1>Countdown to Djinen's Birthday</h1>
     <div id="timer" class="time"></div>
-    <div class="message">My special day is almost here! ready to spend some money on me !!?</div>
+    <div class="message">My special day is almost here! Ready to spend some money on me!!?</div>
   </div>
+
+  <h1><a href="./BIRTHDAY INVITE DJINEN.HTML">CLICK HERE YOU'RE INVITED!!!!!</a></h1>
 
   <script>
     // Set the date of the birthday to 16:00 (4:00 PM)
@@ -98,12 +92,11 @@
       // If the countdown is over, display a message
       if (distance < 0) {
         clearInterval(countdownInterval);
-        document.getElementById("timer").innerHTML = "Happy Birthday, to me am 20!!!!!";
+        document.getElementById("timer").innerHTML = "Happy Birthday to me! I'm 20!!!!!";
         document.querySelector(".message").style.display = "none";
       }
     }, 1000);
   </script>
-  <h1><a href="./BIRTHDAY INVITE DJINEN.HTML">CLICK HERE YOU'RE INVITED!!!!!</a></h1>
 
 </body>
 </html>
